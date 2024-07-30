@@ -3,7 +3,7 @@ name: Schedule Python Script
 on:
   schedule:
     - cron: '40 2 * * *'  # Every day at 2:40 AM UTC
-  workflow_dispatch:  # Add this line
+  workflow_dispatch:  # Add this line to allow manual triggering
 
 jobs:
   run-script:
@@ -19,3 +19,8 @@ jobs:
         run: pip install requests
       - name: Run script
         run: python nse-block-deals.py
+      - name: Upload block deals report
+        uses: actions/upload-artifact@v2
+        with:
+          name: block-deals
+          path: block_deals_*.csv
