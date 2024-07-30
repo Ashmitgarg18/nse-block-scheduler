@@ -1,0 +1,20 @@
+name: Schedule Python Script
+
+on:
+  schedule:
+    - cron: '40 2 * * *'  # Every day at 2:40 AM UTC
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run script
+        run: python nse-block-deals.py
