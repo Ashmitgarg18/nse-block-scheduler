@@ -2,8 +2,8 @@ name: Schedule Python Script
 
 on:
   schedule:
-    - cron: '0 16 * * *'  # Every day at 2:40 AM UTC
-  workflow_dispatch:  # Add this line to allow manual triggering
+    - cron: '0 16 * * *'
+  workflow_dispatch:  
 
 jobs:
   run-script:
