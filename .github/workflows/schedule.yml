@@ -3,6 +3,7 @@ name: Schedule Python Script
 on:
   schedule:
     - cron: '40 2 * * *'  # Every day at 2:40 AM UTC
+  workflow_dispatch:  # Add this line
 
 jobs:
   run-script:
